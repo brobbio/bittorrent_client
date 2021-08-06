@@ -1,0 +1,82 @@
+PARSEO A MANO DE BIG-BUCK-BUNNY:
+
+'d8:announce40:udp://tracker.leechers-paradise.org:6969
+13:announce-listll40:udp://tracker.leechers-paradise.org:6969el34:udp://tracker.coppersurfer.tk:6969e
+l33:udp://tracker.opentrackr.org:1337e
+l23:udp://explodie.org:6969el31:udp://tracker.empire-js.us:1337e
+l26:wss://tracker.btorrent.xyze
+l32:wss://tracker.openwebtorrent.come
+l25:wss://tracker.fastcast.nze
+e <- cierro lista de listas
+7:comment34:WebTorrent <https://webtorrent.io>
+10:created by34:WebTorrent <https://webtorrent.io>
+13:creation datei1490916601e
+8:encoding5:UTF-8
+4:info
+  d
+    5:filesl
+    d
+      6:lengthi140e
+      4:pathl21:Big Buck Bunny.en.srte
+    e
+    d
+      6:lengthi276134947e
+      4:pathl18:Big Buck Bunny.mp4e
+    e
+  d
+    6:lengthi310380e
+    4:pathl10:poster.jpge
+  e
+e4:name14:Big Buck Bunny12:piece lengthi262144e
+
+
+'d8:announce40:udp://tracker.leechers-paradise.org:6969
+13:announce-listll40:udp://tracker.leechers-paradise.org:6969el34:udp://tracker.coppersurfer.tk:6969e
+l33:udp://tracker.opentrackr.org:1337e
+l23:udp://explodie.org:6969el31:udp://tracker.empire-js.us:1337e
+l26:wss://tracker.btorrent.xyze
+l32:wss://tracker.openwebtorrent.come
+l25:wss://tracker.fastcast.nze
+e <- cierro lista de listas
+7:comment34:WebTorrent <https://webtorrent.io>
+10:created by34:WebTorrent <https://webtorrent.io>
+13:creation datei1490916601e
+8:encoding5:UTF-8
+4:info
+  d
+    5:filesl
+    d
+      6:lengthi140e
+      4:pathl21:Big Buck Bunny.en.srte
+    e
+    d
+      6:lengthi276134947e
+      4:pathl18:Big Buck Bunny.mp4e
+    e
+  d
+    6:lengthi310380e
+    4:pathl10:poster.jpge
+  e
+e
+4:name14:Big Buck Bunny12:piece lengthi262144e6:pieces21100:'
+
+diccionario:
+  clave: announce -> significado: udp://tracker.leechers-paradise.org:6969
+  clave: announce-list -> significado: lista de listas [[udp://tracker.leechers-paradise.org:6969], [udp://tracker.coppersurfer.tk:6969],[udp://tracker.opentrackr.org:1337],[wss://tracker.btorrent.xyz],[etc...]]
+  clave: comment -> significado: WebTorrent <https://webtorrent.io>
+  clave: created by -> significado: WebTorrent <https://webtorrent.io>
+  clave: creation date -> significado: 1490916601
+  clave: encoding -> significado: UTF-8
+  clave: info -> significado:
+                            diccionario:
+                                  clave: files -> significado: diccionario:
+                                                                clave: length -> significado: 140
+                                                                clave: path -> significado: lista [Big Buck Bunny.en.srt]
+                                         length-> significado: 276134947
+                                         path -> significado: lista [Big Buck Bunny.mp4]
+        length -> significado: 310380
+        path -> significado:
+
+  clave: name -> significado: Big Buck Bunny
+  clave: piece length: 262144
+  clave: pieces: INFO EN BINARIO
