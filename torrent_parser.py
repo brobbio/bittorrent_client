@@ -103,66 +103,6 @@ def parsing(texto, posicion):
         raise ValueError
     return (data, j)
 
-#def get_info(texto):
-
-
-
-#     if texto[i] == 'd':
-#         nuevo_dic = dict([])
-#         token_actual = 'd';
-#     if texto[i] == 'l':
-#         nueva_lista = []
-#         token_actual = 'l'
-#     if texto[i] in ['0','1','2','3','4','5','6','7','8','9']:
-#         j = 0
-#         longitud = ''
-#         while(texto[i+j] in ['0','1','2','3','4','5','6','7','8','9']):
-#             longitud = longitud + texto[i+j]
-#             j += 1
-#         avanzar = int(longitud)-1
-#         palabra = texto[i+1:i+avanzar]
-#         if token_actual == 'd':
-#                 significado = palabra
-#                 i = i+avanzar+1
-#                 if texto[i]!=':':
-#                     raise ValueError
-#                 else:
-#                     j = 0
-#                     longitud = ''
-#                     while(texto[i+j] in ['0','1','2','3','4','5','6','7','8','9']):
-#                         longitud = longitud + texto[i+j]
-#                         j+=1
-#                     avanzar = int(longitud)-1
-#                     palabra_significado = texto[i+1:i+avanzar]
-#                     nuevo_dict[palabra] = palabra_significado
-#                     i = i+avanzar+1
-#                     if texto[i] == 'e':
-#                         token_actual = ''
-#                     else:
-#                         token_actual = 'd'
-#             if token_actual == 'l':
-#                 nueva_lista.append(palabra)
-#                 i = i+avanzar+1
-#                 if texto[i] == 'e':
-#                     token_actual = ''
-#                 else:
-#                     token_actual = 'l'
-#             i = i+avanzar
-#
-#         i = i+1
-#
-# def decodificar_diccionario(diccio, texto):
-#     diccio[palabra]
-#
-# def decodificar(texto):
-#     if texto[0] == 'd':
-#         nuevo_dic = dict([])
-#         decodificar_diccionario(nuevo_dic, texto[1:-1])
-#     if texto[0] == 'l'
-#         nueva_lista = []
-#         decodificar_lista(nueva_lista, texto[1:-1])
-
-
 if __name__ == "__main__":
     data = open("big-buck-bunny.torrent", "rb").read()
     torrent = parsing(data, 0)[0]
