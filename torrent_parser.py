@@ -1,58 +1,58 @@
 import re
 
-####COMENTAR VARIAS LÍNEAS: CTRL+ALT+/####
+####COMENTAR VARIAS LÍNEAS: CTRL+ALT+7####
 
-def tokenize(text, patron=re.compile(rb'([idel])|(\d+):|(-?\d+)')):
-    '''([idel])|(\d+): tiene  partes. 1 es {i,d,e,l}. 2 es por lo menos un número
-                    3. 0 o 1 veces un número'''
-    i = 0
-    while i < len(text):
-        s = patron.finditer(text)
-        iterador = next(s)
-        elemento = iterador.group()
-        grupos = s.group(s.lastindex)
-        if iterador.start() < i:
-            iterador = next(s)
-        i = s.end()
-        if s.lastindex == 2:
-            yield "s"
-            yield text[i:i+s.end()]
-            i = i + s.end()
-        else:
-            yield s
-
-
-def decode_item(next, token):
-    if token == "i":
-        # integer: "i" value "e"
-        data = int(next())
-        if next() != "e":
-            raise ValueError
-#    elif token == "s":
-        # string: "s" value (virtual tokens)
-#        data = next()
-    elif token == "l" or token == "d":
-        # container: "l" (or "d") values "e"
-        data = []
-        tok = next()
-        while tok != "e":
-            data.append(decode_item(next, tok))
-            tok = next()
-        if token == "d":
-            data = dict(zip(data[0::2], data[1::2]))
-    else:
-        raise ValueError
-    return data
-
-def decode(text):
-    try:
-        src = tokenize(text)
-        data = decode_item(next(src), next(src).group())
-        for token in src: # look for more tokens
-            raise SyntaxError("trailing junk")
-    except (AttributeError, ValueError, StopIteration):
-        raise SyntaxError("syntax error")
-    return data
+# def tokenize(text, patron=re.compile(rb'([idel])|(\d+):|(-?\d+)')):
+#     '''([idel])|(\d+): tiene  partes. 1 es {i,d,e,l}. 2 es por lo menos un número
+#                     3. 0 o 1 veces un número'''
+#     i = 0
+#     while i < len(text):
+#         s = patron.finditer(text)
+#         iterador = next(s)
+#         elemento = iterador.group()
+#         grupos = s.group(s.lastindex)
+#         if iterador.start() < i:
+#             iterador = next(s)
+#         i = s.end()
+#         if s.lastindex == 2:
+#             yield "s"
+#             yield text[i:i+s.end()]
+#             i = i + s.end()
+#         else:
+#             yield s
+#
+#
+# def decode_item(next, token):
+#     if token == "i":
+#         # integer: "i" value "e"
+#         data = int(next())
+#         if next() != "e":
+#             raise ValueError
+# #    elif token == "s":
+#         # string: "s" value (virtual tokens)
+# #        data = next()
+#     elif token == "l" or token == "d":
+#         # container: "l" (or "d") values "e"
+#         data = []
+#         tok = next()
+#         while tok != "e":
+#             data.append(decode_item(next, tok))
+#             tok = next()
+#         if token == "d":
+#             data = dict(zip(data[0::2], data[1::2]))
+#     else:
+#         raise ValueError
+#     return data
+#
+# def decode(text):
+#     try:
+#         src = tokenize(text)
+#         data = decode_item(next(src), next(src).group())
+#         for token in src: # look for more tokens
+#             raise SyntaxError("trailing junk")
+#     except (AttributeError, ValueError, StopIteration):
+#         raise SyntaxError("syntax error")
+#     return data
 
 def parsing_elemento_dicOLista(texto, longitud):
     '''Devuelve los elementos correspondientes a un diccionario o lista. PRE: texto empieza en : '''
@@ -104,5 +104,5 @@ def parsing(texto, posicion):
     return (data, j)
 
 if __name__ == "__main__":
-    data = open("big-buck-bunny.torrent", "rb").read()
+    data = open("./Torrent_examples/ubuntu-21.04-desktop-amd64.iso.torrent", "rb").read()
     torrent = parsing(data, 0)[0]
