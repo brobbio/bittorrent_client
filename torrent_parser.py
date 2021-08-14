@@ -61,8 +61,8 @@ def parsing_elemento_dicOLista(texto, longitud):
     res = texto[1+j:1+j+longitud]
     return res
 
-def parsing(texto, posicion):
-    '''Devuelve en variable data el tipo de objeto correspondiente al token en texto[posicion]'''
+def parsing(texto, posicion = 0):
+    '''Returns a dictionary with the metadata of the torrent'''
     i = posicion
 
     if chr(texto[i]) == 'i':         #Parseo si hay un entero

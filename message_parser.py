@@ -42,3 +42,40 @@ have: <len=0005><id=4><piece index>
 The have message is fixed length.
 The payload is the zero-based index of a piece that has just been successfully downloaded and verified via the hash.
 '''
+
+def receive_handshake(handshake):
+    response = s.recv(len(handshake))
+    unpacked_response = None
+    if(not response):
+        print("Failed handshake")
+    else:
+        unpacked_response = struct.unpack(fmt, response)
+
+    if(unpacked_response[-1]!=respuesta[b'peers'][0][b'peer id']):
+        s.close()
+    #TODO: (WHEN SERVING FILES):
+        #CLOSE THE CONNECTION IF I RECEIVE A INFO_HASH DIFF FROM THE ONE I'M SERVING
+    return unpacked_response
+
+def msg_parser(msg):
+    '''Accepts an unpacked handshake from peer'''
+    if msg[1].decode('utf-8')!='BitTorrent protocol' :
+        raise ConnectionError('Unknown protocol')
+    log.debug('Received handshake from peer')
+
+def construct_msg(type):
+    '''The structure of the message is <length_prefix><msg_id><payload>'''
+    message_type = -1
+    types = ['choke', 'unchoke', 'interested', 'not_interested', 'have', 'bitfield', 'request', 'piece', 'cancel', 'port']
+    for n, elmt in enumerate(types):
+        if elmt == type:
+            message_type = n
+            break
+    if message_type == -1:
+        raise ConnectionError('Unrecognized message')
+    length_prefix = len(payload)+1
+    fmt = '!LB%ds' % len(payload)
+    msg = struct.pack(fmt, length_prefix, message_type, payload)
+    return msg
+
+def send_msg(type, **params):
