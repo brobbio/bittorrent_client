@@ -1,8 +1,14 @@
 import urllib
 import hashlib
 import bencodepy
+import struct
+import socket
+from requests.exceptions import ConnectionError
 from torrent_parser import parsing
 from random import randint
+from torrent_metadata import Metadata
+from trackerData import trackerData
+from connect import ConnectionToPeer
 
 '''
 Messages:
@@ -43,19 +49,56 @@ The have message is fixed length.
 The payload is the zero-based index of a piece that has just been successfully downloaded and verified via the hash.
 '''
 
-def receive_handshake(handshake):
-    response = s.recv(len(handshake))
+m = Metadata()
+m.extract_info()
+
+tracker = trackerData()
+tracker.get_tracker_info(m)
+
+
+
+info_hash = hashlib.sha1(bencodepy.encode(m.info)).digest()
+pstr = b'BitTorrent protocol'
+fmt = '!B%ds8x20s20s' % len(pstr)
+pstrlen = b'19'
+reserved = b'00000000'
+
+handshake = struct.pack(fmt, len(pstr), pstr, info_hash, (tracker.tracker_id).encode('utf-8'))
+
+def receive_handshake(handshake, c):
+    #s = c.connection
+    #s.connect((c.ip, c.port))
+    c.connection.sendall(handshake)
+    response = c.connection.recv(len(handshake))
     unpacked_response = None
+    pstr = b'BitTorrent protocol'
+    fmt = '!B%ds8x20s20s' % len(pstr)
     if(not response):
         print("Failed handshake")
     else:
         unpacked_response = struct.unpack(fmt, response)
 
-    if(unpacked_response[-1]!=respuesta[b'peers'][0][b'peer id']):
-        s.close()
+        # if(unpacked_response[-1]!=tracker.peers[0][b'peer id']):
+        #     s.close()
     #TODO: (WHEN SERVING FILES):
         #CLOSE THE CONNECTION IF I RECEIVE A INFO_HASH DIFF FROM THE ONE I'M SERVING
-    return unpacked_response
+        return unpacked_response
+
+success_list = []
+
+for peer in tracker.peers:
+    c = ConnectionToPeer(peer)
+    try:
+        c.establish_conn(tracker, m)
+    except ConnectionResetError or ConnectionRefusedError as e:
+        print(e)
+        s = "No response from peer"
+        continue
+    res = receive_handshake(handshake, c)
+    success_list.append(res)
+    # if not (type(receive_handshake(handshake, c)) is None):
+    #     success_list = success_list +1
+
 
 def msg_parser(msg):
     '''Accepts an unpacked handshake from peer'''
@@ -78,4 +121,4 @@ def construct_msg(type):
     msg = struct.pack(fmt, length_prefix, message_type, payload)
     return msg
 
-def send_msg(type, **params):
+#def send_msg(type, **params):

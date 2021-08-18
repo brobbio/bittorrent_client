@@ -31,7 +31,7 @@ import hashlib
 import bencodepy
 from torrent_parser import parsing
 from random import randint
-from torrent import Torrent
+#from torrent import Torrent
 
 
 ####################################################################
@@ -47,15 +47,22 @@ from requests.exceptions import ConnectionError
 from torrent_metadata import Metadata
 from trackerData import trackerData
 
+m = Metadata()
+m.extract_info()
+
+tracker = trackerData()
+tracker.get_tracker_info(m)
+
 class ConnectionToPeer():
-    def __init__(self):
-        self.peer_id = None
-        self.ip = ''
-        self.port = 0
+    def __init__(self, peer):
+        self.peer_id = peer[b'peer id']
+        self.ip = peer[b'ip']
+        self.port = peer[b'port']
         self.connectionEstablished = False
         self.connection = None
 
-    def establish_conn(self, peer, metadata):
+
+    def establish_conn(self, tracker, metadata):
         '''Sends handshake to a single peer in the tracker list'''
         #Build the handshake to send
         #Format of handshake: <pstrlen><pstr><reserved><info_hash><peer_id>
@@ -65,27 +72,30 @@ class ConnectionToPeer():
         pstrlen = b'19'
         reserved = b'00000000'
 
-        handshake = struct.pack(fmt, len(pstr), pstr, info_hash, peer_id)
-
-        #Request the list of available peers to tracker
-        r = requests.get(url)
-        respuesta = parsing(r.content,0)[0]
-        peers = respuesta[b'peers']
-
-        #Choose one peer. TODO: How to handle multiple peers at once?
-        peer = peers[0]
+        handshake = struct.pack(fmt, len(pstr), pstr, info_hash, self.peer_id)
 
         #Send handshake
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
-            s.connect((peer[b'ip'],peer[b'port']))
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((self.ip, self.port))
+            # s.send(handshake)
+            # handshake_reply = s.recv(len(handshake))
+            # if len(handshake_reply) == len(handshake):
+            #     print("Connection to peer successful")
+            #     self.connectionEstablished = True
+            # else:
+            #     print("Connection to peer unsuccessful")
+            # print(handshake_reply)
+            self.connectionEstablished = True
         except ConnectionError as e:
              print(e)
-             s = "No response"
+             s = "No response from peer"
 
         self.connection = s
-        s.send(handshake)
 
+
+    def __repr__(self):
+        return "Peer id: "+ str(self.peer_id) + '\n'+ "Ip: " + str((self.ip).decode('utf-8')) + '\n'+"Port: "+ str(self.port) + '\n'+"Connection established: "+ str(self.connectionEstablished)
 
 ##################################################################
 ###AT THIS POINT WE HAVE CONNECTED AND SENT HANDSHAKE TO A PEER###
