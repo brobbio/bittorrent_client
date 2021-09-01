@@ -70,4 +70,4 @@ class trackerData():
                     self.peers = diccio
 
     def __repr__(self):
-        return "Complete:"+ str(self.complete) + '\n'+"Incomplete: " + str(self.incomplete) + '\n'+"Comment: "+ str(self.interval)
+        return "Complete:"+ str(self.complete) + '\n'+"Incomplete: " + str(self.incomplete) + '\n'+"Comment: "+ str(self.interval + '\n'+"Tracker ID: "+self.tracker_id)
