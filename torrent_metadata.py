@@ -3,6 +3,7 @@ import bencodepy
 import urllib
 import hashlib
 from torrent_parser import parsing
+from math import ceil
 import time
 
 class Metadata():
@@ -18,6 +19,8 @@ class Metadata():
         self.pieces = 0
         self.private = None
         self.info = {}
+        self.info_hash = ''
+        self.single_file_mode = False
 
         #Info in single file mode
         self.name = ''
@@ -33,10 +36,9 @@ class Metadata():
     def extract_info(self, file = "./Torrent_examples/ubuntu-21.04-desktop-amd64.iso.torrent"):
         data = open(file, "rb").read()
         torrent = parsing(data, 0)[0]
-        single_file_mode = False
 
         if b'pieces' in torrent[b'info'].keys():
-            single_file_mode = True
+            self.single_file_mode = True
 
         #Time of creation
         self.creation_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(torrent[b'creation date']))
@@ -49,8 +51,10 @@ class Metadata():
         self.comment = torrent[b'comment'].decode('utf-8')
         self.created_by = torrent[b'created by'].decode('utf-8')
         self.info = torrent[b'info']
+
         diccio = torrent[b'info']
-        if single_file_mode:
+        self.info_hash = self.encode_sha1()
+        if self.single_file_mode:
             self.name = diccio[b'name'].decode('utf-8')
             self.length = diccio[b'length']
             if b'piece length' in diccio.keys():
@@ -63,7 +67,32 @@ class Metadata():
         else:
             self.directory_name = diccio[b'name'].decode('utf-8')
             self.files = diccio[b'files']
+        self.numberOfPieces = ceil(self.length // self.piece_length)
 
+    def encode_sha1(self):
+        sha_1 = hashlib.sha1()
+        print(self.info)
+        sha_1.update(self.info)
+        return sha_1.digest()
 
     def __repr__(self):
-        return "Announce:"+ self.announce + '\n'+"Announce list: " + ', '.join(self.announce_list) + '\n'+"Comment: "+ self.comment + '\n'+"Created by: "+ self.created_by + '\n'+"Piece length: "+ str(self.piece_length)
+        toPrint = f"""
+                Name: {self.name} 
+                Total file size: {self.length} 
+                Created by: {self.created_by} 
+                Creation date: {self.creation_date} 
+                Announce: {self.announce} 
+                Is Single File: {self.single_file_mode} 
+                Piece length: {self.piece_length} 
+                Pieces: {self.numberOfPieces} 
+                File Hash: {self.info_hash} 
+                Comment: {self.comment} 
+                Tracker list: {', '.join(self.announce_list)}
+                """
+        return toPrint
+
+
+if __name__ == "__main__":
+    metaData = Metadata()
+    metaData.extract_info()
+    print(metaData)
