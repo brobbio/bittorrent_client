@@ -1,12 +1,13 @@
 import requests
 import bencodepy
-import urllib
+from urllib.parse import quote
 import hashlib
 from torrent_metadata import Metadata
-from torrent_parser import parsing
+from torrent_parser import encode_bencoding, decode_bencoding
+
 
 class trackerData():
-    def __init__(self):
+    def __init__(self, metadata):
         self.complete = -1
         self.incomplete = -1
         self.interval = -1
@@ -14,16 +15,19 @@ class trackerData():
         self.tracker_id = '-AZ2060-834567891011'
         self.peers = []
 
-    def get_tracker_info(self, metadata):
-        url = metadata.announce
+        metadata.extract_info()
+        self.metadata = metadata
 
-        info_hash = hashlib.sha1(bencodepy.encode(metadata.info)).digest()
+    def get_tracker_info(self):
+        url = self.metadata.get_announce()
 
-        percent_encoded = urllib.parse.quote(info_hash)
+        #info_hash = hashlib.sha1(bencodepy.encode(metadata.info)).digest()
+
+        percent_encoded = quote(self.metadata.get_info_hash())
 
         ###Format of peer_id is -AZ2060-LEN12RANDOMNUMBERS. The -..- was taken from the bitmetadata protocol page
         fields = ['peer_id', 'port', 'left', 'uploaded', 'downloaded']
-        signature = ['-AZ2060-834567891011', '6881', str(metadata.length), '0', '0']
+        signature = ['-AZ2060-834567891011', '6881', str(self.metadata.length), '0', '0']
 
         url = url + '?' + 'info_hash=' + percent_encoded
         for field, signature in zip(fields, signature):
@@ -32,14 +36,14 @@ class trackerData():
         r = requests.get(url)
 
         if(r.status_code == 200):
-            respuesta = parsing(r.content, 0)[0]        #Parseo el diccionario con la respuesta del GET
-            if(b'failure reason' in respuesta.keys()):
+            respuesta = decode_bencoding(r.content, 0)[0]        #Parseo el diccionario con la respuesta del GET
+
+            if b'failure reason' in respuesta.keys():
                 print(respuesta[b'failure reason'].decode('utf-8'))
-            if(b'warning message' in respuesta.keys()):
+            elif b'warning message' in respuesta.keys():
                 print(respuesta[b'warning message'].decode('utf-8'))
             else:
                 peers = respuesta[b'peers']          #Guardo la lista de peers disponibles
-                #TODO: CHECK IF OTHER metadataS HAVE A LIST OF PEERS INSTEAD OF ONE.
                 self.complete = respuesta[b'complete']
                 self.incomplete = respuesta[b'incomplete']
                 self.interval = respuesta[b'interval']
@@ -70,4 +74,17 @@ class trackerData():
                     self.peers = diccio
 
     def __repr__(self):
-        return "Complete:"+ str(self.complete) + '\n'+"Incomplete: " + str(self.incomplete) + '\n'+"Comment: "+ str(self.interval + '\n'+"Tracker ID: "+self.tracker_id)
+        return f"""Complete: {str(self.complete)}
+Incomplete: {str(self.incomplete)}
+Interval: {str(self.interval)}
+Tracker ID: {self.tracker_id}"""
+
+
+if __name__ == '__main__':
+    
+    metadata = Metadata("./Torrent_examples/Okupas [Remasterizado HD 2021] (con música original).torrent")
+    
+    metadata = Metadata("./Torrent_examples/ubuntu-23.10-live-server-amd64.iso.torrent")
+    tracker_data = trackerData(metadata)
+    tracker_data.get_tracker_info()
+

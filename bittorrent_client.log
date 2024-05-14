@@ -1,0 +1,124 @@
+INFO:__main__:Started
+INFO:__main__:Extracting metadata from file ./Torrent_examples/ubuntu-23.10-live-server-amd64.iso.torrent
+INFO:__main__:Connecting to tracker
+INFO:__main__:tracker peers: [{b'ip': b'2a02:1210:4831:9700:ba27:ebff:fe91:60cd', b'peer id': b'-TR2940-nchnh6jsmj6o', b'port': 51316}, {b'ip': b'2a09:8740:0:4::133', b'peer id': b'-TR2930-f903khh03l6x', b'port': 16881}, {b'ip': b'2a02:908:1878:80c0:d7ac:61f3:51c5:f016', b'peer id': b'-TR3000-i9g4wwxafndb', b'port': 51413}, {b'ip': b'2001:41d0:a:26de::1', b'peer id': b'-lt0D80-\xeb-\xb6\x13j\x92\x85\xae\x05W\xe1\x8d', b'port': 6808}, {b'ip': b'2a01:e0a:352:2450:211:32ff:fed8:cacb', b'peer id': b'-TR2930-or7bs6h7mmwd', b'port': 63810}, {b'ip': b'185.125.190.59', b'peer id': b'T03I--00K0LMRh6sWFD1', b'port': 6925}, {b'ip': b'2a03:5800:fe6c:4b81:2a0:98ff:fe12:3a93', b'peer id': b'-TR4020-9iwd2zu43yr9', b'port': 51413}, {b'ip': b'2a02:85f:fc05:400::1', b'peer id': b'-TR4040-3v7po80v4yju', b'port': 54454}, {b'ip': b'2a03:50a0:301:b500:a8a1:59ff:fe5d:8cc4', b'peer id': b'-TR4040-8oj4tqt2mo7m', b'port': 51413}, {b'ip': b'2001:41d0:1004:20b5::1', b'peer id': b'-TR3000-j5bpcn2jbwba', b'port': 51413}, {b'ip': b'2a01:4f8:c010:8a61::1', b'peer id': b'-TR4050-wzsk2pvsbc2q', b'port': 51413}, {b'ip': b'2a02:247a:210:a800::1', b'peer id': b"-lt0D80-\x9c\xe4\xf6M\xea\x91\xcb0\xf0\xca'\xd2", b'port': 6920}, {b'ip': b'2001:470:c21f:1:0:0:0:160', b'peer id': b'-BI3501-8qxMgoZwTz3A', b'port': 55935}, {b'ip': b'2001:67c:440:688:91:236:251:136', b'peer id': b'-TR4050-6txeurkbkv6p', b'port': 5010}]
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2940-nchnh6jsmj6o'
+Ip: b'2a02:1210:4831:9700:ba27:ebff:fe91:60cd'
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2930-f903khh03l6x'
+Ip: b'2a09:8740:0:4::133'
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-i9g4wwxafndb'
+Ip: b'2a02:908:1878:80c0:d7ac:61f3:51c5:f016'
+INFO:__main__:Could not connect to peer: Peer id: b'-lt0D80-\xeb-\xb6\x13j\x92\x85\xae\x05W\xe1\x8d'
+Ip: b'2001:41d0:a:26de::1'
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2930-or7bs6h7mmwd'
+Ip: b'2a01:e0a:352:2450:211:32ff:fed8:cacb'
+INFO:__main__:Could not connect to peer: Peer id: b'T03I--00K0LMRh6sWFD1'
+Ip: b'185.125.190.59'
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4020-9iwd2zu43yr9'
+Ip: b'2a03:5800:fe6c:4b81:2a0:98ff:fe12:3a93'
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4040-3v7po80v4yju'
+Ip: b'2a02:85f:fc05:400::1'
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4040-8oj4tqt2mo7m'
+Ip: b'2a03:50a0:301:b500:a8a1:59ff:fe5d:8cc4'
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-j5bpcn2jbwba'
+Ip: b'2001:41d0:1004:20b5::1'
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4050-wzsk2pvsbc2q'
+Ip: b'2a01:4f8:c010:8a61::1'
+INFO:__main__:Could not connect to peer: Peer id: b"-lt0D80-\x9c\xe4\xf6M\xea\x91\xcb0\xf0\xca'\xd2"
+Ip: b'2a02:247a:210:a800::1'
+INFO:__main__:Could not connect to peer: Peer id: b'-BI3501-8qxMgoZwTz3A'
+Ip: b'2001:470:c21f:1:0:0:0:160'
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4050-6txeurkbkv6p'
+Ip: b'2001:67c:440:688:91:236:251:136'
+INFO:__main__:Finished
+INFO:__main__:Started
+INFO:__main__:Extracting metadata from file ./Torrent_examples/ubuntu-23.10-live-server-amd64.iso.torrent
+INFO:__main__:Connecting to tracker
+INFO:__main__:tracker peers: [{b'ip': b'2a03:5800:fe6c:4b81:2a0:98ff:fe12:3a93', b'peer id': b'-TR4020-9iwd2zu43yr9', b'port': 51413}, {b'ip': b'2a01:260:1027:3::cef2', b'peer id': b'-TR3000-k101eorsbz1i', b'port': 33333}, {b'ip': b'2a02:908:2057:9c40:8440:99ff:fe56:39be', b'peer id': b'-lt0D80-\xbf\x80Ra\xba\xd9\x01\x0e_\x9b\x8at', b'port': 51413}, {b'ip': b'2a01:4f8:141:5330::2', b'peer id': b'-TR3000-0qlav8htugtz', b'port': 51413}, {b'ip': b'2001:41d0:a:26de::1', b'peer id': b'-lt0D80-\xeb-\xb6\x13j\x92\x85\xae\x05W\xe1\x8d', b'port': 6808}, {b'ip': b'2602:fd23:1:0:2c5c:58ff:fe0b:5e38', b'peer id': b'-TR3000-uc1z2mcp5nb2', b'port': 51413}, {b'ip': b'185.125.190.59', b'peer id': b'T03I--00K0LMRh6sWFD1', b'port': 6925}, {b'ip': b'2001:470:c21f:1:0:0:0:160', b'peer id': b'-BI3501-8qxMgoZwTz3A', b'port': 55935}, {b'ip': b'2a02:908:1878:80c0:d7ac:61f3:51c5:f016', b'peer id': b'-TR3000-i9g4wwxafndb', b'port': 51413}, {b'ip': b'2a06:4005:60b6:20::2', b'peer id': b'-TR4050-7ca6f734fgfy', b'port': 51413}, {b'ip': b'2a02:247a:210:a800::1', b'peer id': b"-lt0D80-\x9c\xe4\xf6M\xea\x91\xcb0\xf0\xca'\xd2", b'port': 6920}, {b'ip': b'2a03:50a0:301:b500:a8a1:59ff:fe5d:8cc4', b'peer id': b'-TR4040-8oj4tqt2mo7m', b'port': 51413}, {b'ip': b'2600:1700:dc40:2830:c423:6cff:fe78:e2ea', b'peer id': b'-TR3000-4eus7nbuv3ap', b'port': 51413}, {b'ip': b'2607:5300:60:623::1', b'peer id': b'-TR2940-vwu5dwjmjxtn', b'port': 51413}, {b'ip': b'2001:bc8:6010:212:ec4:7aff:fe71:7f0c', b'peer id': b'-TR2940-j3mr0t0xcdsu', b'port': 51413}, {b'ip': b'2a05:4880:1:7:211:32ff:fe36:1ded', b'peer id': b'-TR2930-3wgx9qlc1eez', b'port': 6881}, {b'ip': b'2001:67c:440:688:91:236:251:136', b'peer id': b'-TR4050-6txeurkbkv6p', b'port': 5010}, {b'ip': b'2a01:e0a:3c4:6c10:d354:d32f:81ca:ade1', b'peer id': b'-TR3000-nxmz3fzewhrw', b'port': 51413}, {b'ip': b'2a09:8740:0:4::133', b'peer id': b'-TR2930-f903khh03l6x', b'port': 16881}, {b'ip': b'240b:11:b9c0:5500:3d43:1027:3761:8bec', b'peer id': b'-TR4050-vevj1xnf74w6', b'port': 51413}, {b'ip': b'2a02:1210:4831:9700:ba27:ebff:fe91:60cd', b'peer id': b'-TR2940-nchnh6jsmj6o', b'port': 51316}, {b'ip': b'2a02:ab88:2a96:3680:a236:bcff:fec9:6c4a', b'peer id': b'-TR3000-7sbderu2565w', b'port': 51413}, {b'ip': b'2001:470:7a83:6f74:0:7069:7261:7465', b'peer id': b'-TR4050-s5btk4baijxs', b'port': 6979}, {b'ip': b'2a01:4f8:fff2:28:210:4bff:fe60:1f5b', b'peer id': b'-TR3000-e5c472swn926', b'port': 51413}, {b'ip': b'2a01:4f8:c010:8a61::1', b'peer id': b'-TR4050-wzsk2pvsbc2q', b'port': 51413}, {b'ip': b'2a06:4004:90d7:0:298b:13b5:4bcc:5e55', b'peer id': b'-TR3000-k7s1ft8lswux', b'port': 51413}, {b'ip': b'2001:7e8:f205:e701:dea6:32ff:fe89:3f29', b'peer id': b'-TR2940-000m2afn30ej', b'port': 51413}, {b'ip': b'2001:41d0:1004:20b5::1', b'peer id': b'-TR3000-j5bpcn2jbwba', b'port': 51413}, {b'ip': b'2a01:e0a:352:2450:211:32ff:fed8:cacb', b'peer id': b'-TR2930-or7bs6h7mmwd', b'port': 63810}, {b'ip': b'2403:6200:8827:1f09:211:32ff:feda:293c', b'peer id': b'-TR2930-kp7xrrzmydlo', b'port': 16881}]
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4020-9iwd2zu43yr9'
+Ip: b'2a03:5800:fe6c:4b81:2a0:98ff:fe12:3a93'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-k101eorsbz1i'
+Ip: b'2a01:260:1027:3::cef2'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-lt0D80-\xbf\x80Ra\xba\xd9\x01\x0e_\x9b\x8at'
+Ip: b'2a02:908:2057:9c40:8440:99ff:fe56:39be'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-0qlav8htugtz'
+Ip: b'2a01:4f8:141:5330::2'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-lt0D80-\xeb-\xb6\x13j\x92\x85\xae\x05W\xe1\x8d'
+Ip: b'2001:41d0:a:26de::1'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-uc1z2mcp5nb2'
+Ip: b'2602:fd23:1:0:2c5c:58ff:fe0b:5e38'
+INFO:__main__:Could not connect to peer: Peer id: b'T03I--00K0LMRh6sWFD1'
+Ip: b'185.125.190.59'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-BI3501-8qxMgoZwTz3A'
+Ip: b'2001:470:c21f:1:0:0:0:160'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-i9g4wwxafndb'
+Ip: b'2a02:908:1878:80c0:d7ac:61f3:51c5:f016'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4050-7ca6f734fgfy'
+Ip: b'2a06:4005:60b6:20::2'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b"-lt0D80-\x9c\xe4\xf6M\xea\x91\xcb0\xf0\xca'\xd2"
+Ip: b'2a02:247a:210:a800::1'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4040-8oj4tqt2mo7m'
+Ip: b'2a03:50a0:301:b500:a8a1:59ff:fe5d:8cc4'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-4eus7nbuv3ap'
+Ip: b'2600:1700:dc40:2830:c423:6cff:fe78:e2ea'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2940-vwu5dwjmjxtn'
+Ip: b'2607:5300:60:623::1'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2930-3wgx9qlc1eez'
+Ip: b'2a05:4880:1:7:211:32ff:fe36:1ded'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4050-6txeurkbkv6p'
+Ip: b'2001:67c:440:688:91:236:251:136'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-nxmz3fzewhrw'
+Ip: b'2a01:e0a:3c4:6c10:d354:d32f:81ca:ade1'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2930-f903khh03l6x'
+Ip: b'2a09:8740:0:4::133'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4050-vevj1xnf74w6'
+Ip: b'240b:11:b9c0:5500:3d43:1027:3761:8bec'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2940-nchnh6jsmj6o'
+Ip: b'2a02:1210:4831:9700:ba27:ebff:fe91:60cd'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-7sbderu2565w'
+Ip: b'2a02:ab88:2a96:3680:a236:bcff:fec9:6c4a'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4050-s5btk4baijxs'
+Ip: b'2001:470:7a83:6f74:0:7069:7261:7465'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-e5c472swn926'
+Ip: b'2a01:4f8:fff2:28:210:4bff:fe60:1f5b'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR4050-wzsk2pvsbc2q'
+Ip: b'2a01:4f8:c010:8a61::1'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-k7s1ft8lswux'
+Ip: b'2a06:4004:90d7:0:298b:13b5:4bcc:5e55'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2940-000m2afn30ej'
+Ip: b'2001:7e8:f205:e701:dea6:32ff:fe89:3f29'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR3000-j5bpcn2jbwba'
+Ip: b'2001:41d0:1004:20b5::1'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2930-or7bs6h7mmwd'
+Ip: b'2a01:e0a:352:2450:211:32ff:fed8:cacb'
+INFO:connect:Connection to peer has been established
+INFO:__main__:Could not connect to peer: Peer id: b'-TR2930-kp7xrrzmydlo'
+Ip: b'2403:6200:8827:1f09:211:32ff:feda:293c'
+INFO:__main__:Finished
